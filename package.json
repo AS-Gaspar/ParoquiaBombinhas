@@ -1,0 +1,22 @@
+{
+  "name": "howv",
+  "version": "1.0.0",
+  "description": "tela de mural de fotos da igreja",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AS-Gaspar/how_v.git"
+  },
+  "author": "AS-Gaspar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AS-Gaspar/how_v/issues"
+  },
+  "homepage": "https://github.com/AS-Gaspar/how_v#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

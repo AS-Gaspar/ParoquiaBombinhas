@@ -3,3 +3,29 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* Cabeçalho */
+
+header {
+
+}
+
+header > h1 {
+
+}
+
+header > p {
+
+}
+
+/* Corpo */
+
+
+
