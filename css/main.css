@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #95a8bb !important;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0px;
+}
+
+.header-roxo {
+    background-color: #800080;
+    color: #fff;
+    margin: 0;
+    width: 100%;
+}
+
+.info-roxo {
+    background-color: #800080;
+    color: #fff;
+    width: 100%;
+}
