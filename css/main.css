@@ -4,26 +4,33 @@
     box-sizing: border-box;
 }
 
+.reset-bootstrap {
+    margin: 0 !important;
+    padding: 0px !important;
+}
+
 body {
-    background-color: #95a8bb !important;
+    background-color: #800080 !important;
+    height: 100vh;
 }
 
 .wrapper {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #ffff;
     padding: 0px;
 }
 
 .header-roxo {
-    background-color: #800080;
+    background-color: #95a8bb;
     color: #fff;
     margin: 0;
     width: 100%;
 }
 
 .info-roxo {
-    background-color: #800080;
+    background-color: #95a8bb;
     color: #fff;
     width: 100%;
 }
+
