@@ -32,6 +32,12 @@ body {
     margin: 0;
 }
 
+.navbar-collapse {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .navbar-brand h1 {
     font-size: 1.5rem;
     white-space: normal;
@@ -39,7 +45,12 @@ body {
     max-width: 80%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+
+    .navbar-collapse {
+        justify-content: flex-start; 
+    }
+
     .navbar-brand h1 {
         font-size: 1.4rem;
     }
@@ -65,11 +76,27 @@ body {
     max-height: 25vh;
 }
 
+.color-link {
+    background-color: #980098;
+    margin: 6px;
+    padding: 4px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px purple;
+    transition: transform 0.3s ease;
+}
 
+.color-link:hover {
+    transform: scale(1.1);
+}
 
 .info {
     background-color: #95a8bb;
     color: #fff;
     width: 100%;
     flex: 1;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+.info-container {
+    margin: 10px;
 }
