@@ -30,15 +30,42 @@ body {
     background-color: #95a8bb;
     color: #fff;
     margin: 0;
-    width: 100%;
 }
 
-h1 {
-    font-family: "Funnel Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: normal;
+.navbar-brand h1 {
+    font-size: 1.5rem;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 80%;
 }
+
+@media (max-width: 768px) {
+    .navbar-brand h1 {
+        font-size: 1.4rem;
+    }
+
+    .logo-paroquia {
+        max-height: 15vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand h1 {
+        font-size: 1.2rem;
+        max-width: 60%;
+    }
+
+    .logo-paroquia {
+        max-height: 10vh;
+    }
+
+}
+
+.logo-paroquia {
+    max-height: 25vh;
+}
+
+
 
 .info {
     background-color: #95a8bb;
