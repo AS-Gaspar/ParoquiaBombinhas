@@ -24,7 +24,7 @@ body {
     flex-flow: column nowrap;
     justify-content: space-between;
     max-width: 1600px;
-    height: 100vh;
+    height: auto;
     margin: 0 auto;
     background-color: #ffff;
     padding: 0px;
@@ -50,10 +50,6 @@ body {
 
 .logo-paroquia {
     max-height: 25vh;
-}
-
-h1 {
-
 }
 
 .color-link {
