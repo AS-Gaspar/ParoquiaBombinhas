@@ -28,7 +28,7 @@ Este projeto foi desenvolvido como parte da disciplina de Software Design com o 
 ## 🧩 Tecnologias Utilizadas
 
 - HTML5  
-- CSS3 (com media queries para responsividade)  
+- CSS3 (Com flexbox, grid layout e media queries para responsividade)  
 - JavaScript (manipulação de DOM e eventos)  
 - Bootstrap 5  
 - Google Fonts  
@@ -54,7 +54,8 @@ Este projeto foi desenvolvido como parte da disciplina de Software Design com o 
 ├── imgs/
 │   ├── logo-paroquia.png    # Logo da igreja
 │   ├── favicon.ico          # Ícone do site
-│   ├── (outras imagens da galeria)
+│   └── (outras imagens da galeria)
+├── node_modules/            # Dependências instaladas com npm (ex: Bootstrap)
 ├── package.json             # Configurações do projeto e dependências
 └── package-lock.json        # Controle de versões das dependências
 ```
