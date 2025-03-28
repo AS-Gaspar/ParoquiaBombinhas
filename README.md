@@ -39,7 +39,7 @@ Este projeto foi desenvolvido como parte da disciplina de Software Design com o 
 ## 📁 Estrutura do Projeto
 
 ```
-📦 how_v
+📦 ParoquiaBombinhas
 ├── index.html               # Página inicial com informações e mapa
 ├── mural.html               # Galeria de fotos da igreja
 ├── eventos.html             # Página de cronograma de eventos
