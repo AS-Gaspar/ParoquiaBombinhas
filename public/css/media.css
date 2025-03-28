@@ -22,4 +22,14 @@
         max-height: 10vh;
     }
 
+    .img-instagram {
+        width: 40px;
+        height: 40px;
+    }
+
+    .float-instagram {
+        bottom: 15px;
+        right: 15px;
+    }
+
 }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 * {
-    margin: 0;
+    margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
@@ -48,14 +48,25 @@ body {
     max-width: 80%;
 }
 
+.navbar-toggler {
+    margin-bottom: 10px;
+}
+
 .logo-paroquia {
     max-height: 25vh;
 }
 
+.center-link {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
 .color-link {
     background-color: #95a8bb;
+    font-size: larger;
     margin: 6px;
-    padding: 4px;
+    padding: 10px;
     border-radius: 50px;
     box-shadow: 1px 1px 1px #95a8bb;
     transition: transform 0.3s ease;
@@ -72,8 +83,28 @@ body {
     max-height: 200px;
     flex: 1;
     box-shadow: 1px 1px 1px dodgerblue;
+    padding: 8px;
 }
 
 .info-container {
-    margin: 10px;
+    margin: 20px;
+}
+
+.float-instagram {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.float-instagram:hover {
+    transform: scale(1.1);
+}
+
+.img-instagram {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
 }

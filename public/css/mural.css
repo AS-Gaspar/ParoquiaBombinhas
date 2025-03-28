@@ -1,0 +1,52 @@
+.carossel-borda {
+    background-color: #800080;
+    border-radius: 10px;
+}
+
+.carossel-button {
+    background-color: #800080;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px purple;    
+    transition: transform 0.2s ease;
+    padding: 2vw;
+}
+
+.carossel-button:hover {
+    transform: scale(1.2);
+}
+
+.card-borda {
+    background-color: #800080;
+    border: 4px solid #800080 !important;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px purple;
+}
+
+.card-foto {
+    display: inline-block !important;
+}
+
+.card-foto img {
+    display: block !important;
+}
+
+.container-images {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-flow: row nowrap;
+    gap: 10px;
+    margin: 20px;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+.padre-50 {
+    max-width: 100% !important;
+    height: auto !important;
+}
