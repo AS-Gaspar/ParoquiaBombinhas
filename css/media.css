@@ -23,13 +23,13 @@
     }
 
     .img-instagram {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
 
     .float-instagram {
-        bottom: 15px;
-        right: 15px;
+        bottom: 20px;
+        right: 20px;
     }
 
 }
