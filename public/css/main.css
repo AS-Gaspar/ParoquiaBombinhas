@@ -12,14 +12,17 @@
 }
 
 body {
-    background-color: #800080 !important;
+    background-color: #95a8bb !important;
     height: 100vh;
+    font-family: "Funnel Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .wrapper {
     display: flex;
     flex-flow: column nowrap;
-    max-width: 1200px;
+    max-width: 1600px;
     height: 100vh;
     margin: 0 auto;
     background-color: #ffff;
@@ -27,7 +30,7 @@ body {
 }
 
 .header {
-    background-color: #95a8bb;
+    background-color: dodgerblue;
     color: #fff;
     margin: 0;
 }
@@ -35,7 +38,6 @@ body {
 .navbar-collapse {
     display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .navbar-brand h1 {
@@ -45,43 +47,16 @@ body {
     max-width: 80%;
 }
 
-@media (max-width: 1000px) {
-
-    .navbar-collapse {
-        justify-content: flex-start; 
-    }
-
-    .navbar-brand h1 {
-        font-size: 1.4rem;
-    }
-
-    .logo-paroquia {
-        max-height: 15vh;
-    }
-}
-
-@media (max-width: 576px) {
-    .navbar-brand h1 {
-        font-size: 1.2rem;
-        max-width: 60%;
-    }
-
-    .logo-paroquia {
-        max-height: 10vh;
-    }
-
-}
-
 .logo-paroquia {
     max-height: 25vh;
 }
 
 .color-link {
-    background-color: #980098;
+    background-color: #95a8bb;
     margin: 6px;
     padding: 4px;
     border-radius: 50px;
-    box-shadow: 1px 1px 1px purple;
+    box-shadow: 1px 1px 1px #95a8bb;
     transition: transform 0.3s ease;
 }
 
@@ -90,11 +65,11 @@ body {
 }
 
 .info {
-    background-color: #95a8bb;
+    background-color: dodgerblue;
     color: #fff;
     width: 100%;
     flex: 1;
-    box-shadow: 1px 1px 1px darkgray;
+    box-shadow: 1px 1px 1px dodgerblue;
 }
 
 .info-container {
