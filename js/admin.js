@@ -1,6 +1,11 @@
-imp
-
+import { parse , format } from 'date-fns'
+import flatpickr from "flatpickr"
+import "flatpickr/dist/flatpickr.min.css"
 let eventos = []
+
+flatpickr("#eventDate", {
+  dateFormat: "d/m/Y"
+});
 
 function renderEventos() {
   const adminEventList = document.getElementById('adminEventList')
@@ -20,7 +25,9 @@ function renderEventos() {
 
 document.getElementById('eventForm').addEventListener('submit', function (e) {
   e.preventDefault()
-  const data = document.getElementById('eventDate').value
+  const dataInputValue = document.getElementById('eventDate').value
+  const parsedDate = parse(dataInputValue, 'dd/MM/yyyy', new Date())
+  const data = format(parsedDate, 'dd/MM/yyyy')
   const nome = document.getElementById('eventName').value
   eventos.push({ data: data, nome: nome })
   renderEventos()
