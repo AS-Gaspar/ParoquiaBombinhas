@@ -6,6 +6,14 @@ body {
     width: 100%;
 }
 
+#adminEventList {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
 .gap-list {
     gap: 6px !important;
 }
