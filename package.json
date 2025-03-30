@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AS-Gaspar/how_v#readme",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "date-fns": "^4.1.0"
   }
 }
