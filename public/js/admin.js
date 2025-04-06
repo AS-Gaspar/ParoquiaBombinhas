@@ -70,7 +70,9 @@ function editarEvento(index) {
 }
 
 flatpickr("#eventDate", {
-  dateFormat: "d/m/Y"
+  dateFormat: "d/m/Y",
+  minDate: "today",
+  enableTime: false
 })
 
 renderEventos()
