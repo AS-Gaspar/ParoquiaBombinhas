@@ -13,7 +13,7 @@ const errorHandler = (err, req, res, next) => {
 }
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public'))) 
 
 const errorRoutes = require('./src/controller/404')
