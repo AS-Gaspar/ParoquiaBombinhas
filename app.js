@@ -13,10 +13,11 @@ const errorHandler = (err, req, res, next) => {
 }
 
 // Middleware
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public'))) 
 
 const errorRoutes = require('./src/controller/404')
+const usersFile = path.join(__dirname, 'data', 'users.json')
 
 // Routes
 
