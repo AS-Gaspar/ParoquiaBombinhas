@@ -1,3 +1,5 @@
+const path = require('path')
+
 exports.errorPage = (req, res) => {
-    res.status(404).render('404', { pageTitle: "Page not found!", path: '/404' } )
+    res.status(404).sendFile(path.join(__dirname, '..', '..', 'public', 'views', '404.html'))
 }
