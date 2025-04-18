@@ -1,3 +1,6 @@
+const path = require("path")
+const viewsPath = path.join(__dirname, "../../public/views") 
 
-
-module.exports = router
+exports.getEventsPage = (req, res) => {  
+  res.sendFile(path.join(viewsPath, 'events.html'));
+}

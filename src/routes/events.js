@@ -1,7 +1,7 @@
 const express = require('express')
-const adminController = require('../controller/admin')
+const eventsController = require('../controller/events')
 const router = express.Router()
 
-router.post('/events', adminController.post)
+router.get('/events', eventsController.getEventsPage)
 
 module.exports = router
