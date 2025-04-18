@@ -21,10 +21,8 @@
   },
   "homepage": "https://github.com/AS-Gaspar/how_v#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "express": "^5.1.0",
-    "express-session": "^1.18.1",
     "flatpickr": "^4.6.13"
   },
   "devDependencies": {
