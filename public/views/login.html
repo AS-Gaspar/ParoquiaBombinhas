@@ -19,6 +19,7 @@
           <label for="username" class="form-label">Login</label>
           <input
             type="text"
+            name="username"
             class="form-control"
             id="username"
             placeholder="Digite seu login"
@@ -29,6 +30,7 @@
           <label for="password" class="form-label">Senha</label>
           <input
             type="password"
+            name="password"
             class="form-control"
             id="password"
             placeholder="Digite sua senha"
@@ -36,8 +38,8 @@
           />
         </div>
         <button type="submit" class="btn btn-primary">Entrar</button>
+        <p id="error" class="d-none text-danger mt-3 text-center">Credenciais inválidas</p>
       </form>
-      <div id="errorMsg"></div>
     </div>
     <a href="./index.html" class="btn btn-sm btn-secondary btn-admin">Voltar</a>
     <script src="../js/login.js"></script>
