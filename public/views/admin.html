@@ -16,12 +16,24 @@
     <h1>Gerenciamento de Eventos</h1>
     <form id="eventForm">
       <div class="mb-3">
+        <label for="eventDate" class="form-label">Local</label>
+        <input type="text" class="form-control" id="eventLocal" placeholder="Paróquia de Bombas" required>
+      </div>
+      <div class="mb-3">
         <label for="eventDate" class="form-label">Data do Evento</label>
         <input type="text" class="form-control" id="eventDate" placeholder="dd/mm/yyyy" required>
       </div>
       <div class="mb-3">
-        <label for="eventName" class="form-label">Nome do Evento</label>
+        <label for="eventDate" class="form-label">Horário</label>
+        <input type="number" class="form-control" id="eventHour" placeholder="00h00" required>
+      </div>
+      <div class="mb-3">
+        <label for="eventName" class="form-label">Nome do evento</label>
         <input type="text" class="form-control" id="eventName" placeholder="Digite o nome do evento" required>
+      </div>
+      <div class="mb-3">
+        <label for="eventDate" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="eventDescription" placeholder="Missa 18º domingo do templo comum" required>
       </div>
       <button type="submit" class="btn btn-success">Adicionar Evento</button>
     </form>
