@@ -9,4 +9,6 @@ exports.getMorePage = (req, res) => {
   res.sendFile(path.join(viewsPath, 'mais.html'));
 }
 
-
+exports.getEventsPage = (req, res) => {  
+  res.sendFile(path.join(viewsPath, 'events.html'));
+}

@@ -2,7 +2,6 @@ const express = require("express")
 const path = require("path")
 const adminRouter = require("./src/routes/admin")
 const staticRouter = require("./src/routes/static")
-const eventsRouter = require("./src/routes/events")
 const errorRoutes = require("./src/controller/404")
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -13,7 +12,6 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use("/admin", adminRouter)
 app.use(staticRouter)
-app.use(eventsRouter)
 
 app.use(errorRoutes.errorPage)
 
