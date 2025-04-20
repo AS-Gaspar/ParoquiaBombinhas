@@ -1,76 +1,192 @@
-import { parse, format } from 'date-fns'
+import { parse, format } from "date-fns"
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css"
 
 let eventos = []
 
-function renderEventos() {
-  const adminEventList = document.getElementById('adminEventList')
-  adminEventList.innerHTML = ''
-
-  eventos.sort((a, b) => {
-    const dateA = parse(a.data, 'dd/MM/yyyy', new Date())
-    const dateB = parse(a.data, 'dd/MM/yyyy', new Date())
-    return dateA - dateB
-  })
-
-  eventos.forEach((evento, index) => {
-    const li = document.createElement('li')
-    li.className = 'list-group-item d-flex justify-content-between align-items-center gap-list'
-    li.innerHTML = `<span><strong>${evento.data}</strong>: ${evento.nome}</span>
-                        <span>
-                          <button class="btn btn-sm btn-warning" data-edit="${index}">Editar</button>
-                          <button class="btn btn-sm btn-danger" data-remove="${index}">Remover</button>
-                        </span>`
-
-    adminEventList.appendChild(li)
-  })
-}
-
-document.getElementById('adminEventList').addEventListener('click', function (e) {
-  const editIndex = e.target.getAttribute('data-edit')
-  const removeIndex = e.target.getAttribute('data-remove')
-
-  if (editIndex !== null) editarEvento(editIndex)
-  if (removeIndex !== null) removerEvento(removeIndex)
-})
-
-document.getElementById('eventForm').addEventListener('submit', function (e) {
-  e.preventDefault()
-
-  const data = document.getElementById('eventDate').value
-  const nome = document.getElementById('eventName').value
-
-  eventos.push({ data: data, nome: nome })
-  renderEventos()
-  this.reset()
-})
-
-function removerEvento(index) {
-  eventos.splice(index, 1)
-  renderEventos()
-}
-
-function editarEvento(index) {
-  const novoData = prompt("Digite a nova data (DD-MM-YYYY):", eventos[index].data)
-  const novoNome = prompt("Digite o novo nome do evento:", eventos[index].nome)
-
-  if (novoData && novoNome) {
-    const parsedNovaData = parse(novoData, 'dd/MM/yyyy', new Date())
-    if (!isNaN(parsedNovaData)) {
-      eventos[index] = {
-        data: format(parsedNovaData, "dd/MM/yyyy"),
-        nome: novoNome
-      }
-      renderEventos()
-    } else {
-      alert('Data inválida! Tente novamente com o formato DD/MM/YYYY.')
+async function fetchAndRenderEvents() {
+  try {
+    console.log("Fetching events from /admin/events...")
+    const response = await fetch('/admin/events')
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
     }
+    const fetchedEvents = await response.json()
+    console.log("Fetched events:", fetchedEvents)
+    eventos = Array.isArray(fetchedEvents) ? fetchedEvents : [];
+    
+    console.log("Calling renderEventos from fetchAndRenderEvents...");
+    renderEventos()
+
+  } catch (error) {
+    console.error("Erro ao buscar eventos:", error)
+    alert("Não foi possível carregar os eventos existentes")
+    eventos = []
+
+    console.log("Calling renderEventos from fetchAndRenderEvents CATCH block...");
+    renderEventos()
   }
 }
 
-flatpickr("#eventDate", {
-  dateFormat: "d/m/Y"
+document
+  .getElementById("adminEventList")
+  .addEventListener("click", function (e) {
+    const editIndex = e.target.getAttribute("data-edit")
+    const removeIndex = e.target.getAttribute("data-remove")
+
+    if (editIndex !== null) editarEvento(editIndex)
+    if (removeIndex !== null) removerEvento(removeIndex)
+  })
+
+document.getElementById("eventForm").addEventListener("submit", async function (e) {
+  e.preventDefault()
+
+  const localInput = document.getElementById("eventLocal")
+  const dataInput = document.getElementById("eventDate")
+  const horaInput = document.getElementById("eventHour")
+  const nomeInput = document.getElementById("eventName")
+  const descriptionInput = document.getElementById("eventDescription")
+
+  const eventData = { local: localInput.value,
+    data: dataInput.value,
+    hora: horaInput.value,
+    nome: nomeInput.value,
+    description: descriptionInput.value || ""
+  }
+
+  try {
+    const response = await fetch('/admin/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',  
+      },
+      body: JSON.stringify(eventData)
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
+    }
+
+    const result = await response.json()
+    console.log(result.message)
+    alert("Evento adicionado com sucesso!")
+    
+    eventos.push(result.event)
+    renderEventos()
+    this.reset()
+
+  } catch (error) {
+    console.error("Erro ao adicionar evento:", error)
+    alert(`Falha ao adicionar evento: ${error.message}`)
+  }
+
 })
 
-renderEventos()
+flatpickr("#eventDate", {
+  dateFormat: "d/m/Y",
+  minDate: "today",
+  enableTime: false,
+})
+
+const hourInput = document.getElementById("eventHour")
+hourInput.addEventListener('input', (e) => {
+  let value = e.target.value.replace(/\D/g, '')
+  if (value.length > 2) {
+    value = value.slice(0, 2) + 'h' + value.slice(2, 4)
+  }
+
+  if (value.length === 5) {
+    const parts = value.split('h')
+    const hours = parseInt(parts[0], 10)
+    const minutes = parseInt(parts[1], 10)
+    if (hours > 23 || minutes > 59) {
+      value = value.slice(0, -1)
+    }
+    e.target.value = value.slice(0, 5)
+  }
+})
+
+function renderEventos() {
+  console.log("renderEventos called")
+  const adminEventList = document.getElementById("adminEventList")
+  console.log("adminEventList element:", adminEventList)
+
+  if (!adminEventList) {
+    console.error("Could not find element with ID 'adminEventList")
+    return
+  }
+
+  adminEventList.innerHTML = ""
+
+  if (!Array.isArray(eventos)) {
+    console.error("renderEventos called but 'eventos' is not and array")
+    eventos = []
+  }
+
+  console.log("Data bein rendered", JSON.stringify(eventos))
+
+  if (eventos.length === 0) {
+    console.log("No events to render")
+  }
+
+  eventos.sort((a, b) => {
+    try {
+      const dateA = a.data ? parse(a.data, "dd/MM/yyyy", new Date()) : new Date(0)
+      const dateB = b.data ? parse(b.data, "dd/mm/yyyy", new Date()) : new Date(0)
+      return dateA - dateB
+    } catch (e) {
+      console.error("Error parsing date for sorting:", e, "Event A:", a, "Event B:", b)
+      return 0
+    }
+  })
+
+  eventos.forEach((evento, index) => {
+    console.log(`Rendenring event index ${index}:`, evento)
+
+    if (!evento || typeof evento !== 'object') {
+      console.warn("Skipping invalid item in eventos array:", evento)
+      return
+    }
+
+    const li = document.createElement("li")
+    li.className =
+      "list-group-item d-flex justify-content-between align-items-center gap-list"
+
+    const local = evento.local || 'N/A'
+    const data = evento.data || 'N/A'
+    const hora = evento.hora || 'N/A'
+    const nome = evento.nome || 'N/A'
+    const description = evento.description || 'N/A'
+
+    const descriptionHtml = description ? `, <strong>Descrição:</strong> ${description}` : ''
+
+    li.innerHTML = `<span>
+    <strong>Local:</strong> ${local},
+    <strong>Data:</strong> ${data},
+    <strong>Hora:</strong> ${hora},
+    <strong>Nome:</strong> ${nome}${descriptionHtml}
+    </span>
+    <span>
+      <button class="btn btn-sm btn-warning" data-edit="${index}">Editar</button>
+      <button class="btn btn-sm btn-danger" data-remove="${index}">Remover</button>
+    </span>`;
+
+    adminEventList.appendChild(li)
+
+    console.log("renderEventos finished")
+  })
+}
+
+function removerEvento(index) {
+  // TODO
+}
+
+function editarEvento(index) {
+  // TODO
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM Content Loaded, calling fetchAndRenderEvents");
+    fetchAndRenderEvents();
+});
