@@ -104,3 +104,7 @@ exports.getEvents = async (req, res) => {
     res.status(500).json({ message: "Erro ao buscar eventos." })
   }
 }
+
+exports.getEditEvent = async (req, res) => {
+  
+}
