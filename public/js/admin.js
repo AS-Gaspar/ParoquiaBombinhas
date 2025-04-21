@@ -6,37 +6,21 @@ let eventos = []
 
 async function fetchAndRenderEvents() {
   try {
-    console.log("Fetching events from /admin/events...")
     const response = await fetch('/admin/events')
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
     const fetchedEvents = await response.json()
-    console.log("Fetched events:", fetchedEvents)
     eventos = Array.isArray(fetchedEvents) ? fetchedEvents : [];
-    
-    console.log("Calling renderEventos from fetchAndRenderEvents...");
     renderEventos()
 
   } catch (error) {
     console.error("Erro ao buscar eventos:", error)
     alert("Não foi possível carregar os eventos existentes")
     eventos = []
-
-    console.log("Calling renderEventos from fetchAndRenderEvents CATCH block...");
     renderEventos()
   }
 }
-
-document
-  .getElementById("adminEventList")
-  .addEventListener("click", function (e) {
-    const editIndex = e.target.getAttribute("data-edit")
-    const removeIndex = e.target.getAttribute("data-remove")
-
-    if (editIndex !== null) editarEvento(editIndex)
-    if (removeIndex !== null) removerEvento(removeIndex)
-  })
 
 document.getElementById("eventForm").addEventListener("submit", async function (e) {
   e.preventDefault()
@@ -69,7 +53,6 @@ document.getElementById("eventForm").addEventListener("submit", async function (
     }
 
     const result = await response.json()
-    console.log(result.message)
     alert("Evento adicionado com sucesso!")
     
     eventos.push(result.event)
@@ -108,9 +91,7 @@ hourInput.addEventListener('input', (e) => {
 })
 
 function renderEventos() {
-  console.log("renderEventos called")
   const adminEventList = document.getElementById("adminEventList")
-  console.log("adminEventList element:", adminEventList)
 
   if (!adminEventList) {
     console.error("Could not find element with ID 'adminEventList")
@@ -122,12 +103,6 @@ function renderEventos() {
   if (!Array.isArray(eventos)) {
     console.error("renderEventos called but 'eventos' is not and array")
     eventos = []
-  }
-
-  console.log("Data bein rendered", JSON.stringify(eventos))
-
-  if (eventos.length === 0) {
-    console.log("No events to render")
   }
 
   eventos.sort((a, b) => {
@@ -142,7 +117,6 @@ function renderEventos() {
   })
 
   eventos.forEach((evento, index) => {
-    console.log(`Rendenring event index ${index}:`, evento)
 
     if (!evento || typeof evento !== 'object') {
       console.warn("Skipping invalid item in eventos array:", evento)
@@ -173,8 +147,6 @@ function renderEventos() {
     </span>`;
 
     adminEventList.appendChild(li)
-
-    console.log("renderEventos finished")
   })
 }
 
@@ -186,7 +158,4 @@ function editarEvento(index) {
   // TODO
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Content Loaded, calling fetchAndRenderEvents");
-    fetchAndRenderEvents();
-});
+fetchAndRenderEvents();

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "start-server": "node app.js",
-    "build": "webpack --config webpack.config.js",
+    "build": "npx webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.js --watch",
     "dev:serve": "nodemon --watch dist --exec \"node app.js\"",
     "dev:all":  "concurrently \"npm run dev\" \"npm run dev:serve\""

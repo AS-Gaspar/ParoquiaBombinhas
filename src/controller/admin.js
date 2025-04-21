@@ -14,10 +14,8 @@ async function getStoredCredentials() {
 }
 
 async function getStoredEvents() {
-  console.log(`Attempting to read events from: ${eventsDataPath}`)
   try {
     const rawFileContent = await fs.readFile(eventsDataPath, { encoding: "utf-8" })
-    console.log("Raw file content read:", rawFileContent)
 
     if (!rawFileContent.trim()) {
       console.log("File is empty or whitespace, returning empty array.")
@@ -25,7 +23,6 @@ async function getStoredEvents() {
     }
 
     const parsedEvents = JSON.parse(rawFileContent)
-    console.log("Sussesfully parsed events", parsedEvents)
     return parsedEvents
 
   } catch (error) {
@@ -36,7 +33,6 @@ async function getStoredEvents() {
       return []
     }
 
-    console.log("Returning empty array due to error")
     return []
   }
 }
@@ -83,20 +79,14 @@ exports.renderDashboard = (req, res) =>
 
 exports.addEvent = async (req, res) => {
   const newEvent = req.body
-  console.log("Received new event data:", newEvent)
   if (!newEvent || !newEvent.local || !newEvent.data || !newEvent.hora || !newEvent.nome) {
-    console.log("Event data incomplete")
     return res.status(400).json({ message: "Dados do evento incompletos" })
   }
 
   try {
-    console.log("Calling getStoredEvents...")
     const storedEvents = await getStoredEvents()
-    console.log("Events returned by getStoredEvents", storedEvents)
     storedEvents.push(newEvent)
-    console.log("Events array after push:", storedEvents)
     await storeEvents(storedEvents)
-    console.log("storeEvents complete")
 
     res.status(201).json({ message: "Evento adicionado com sucesso!", event: newEvent})
   } catch (error) {
@@ -107,9 +97,7 @@ exports.addEvent = async (req, res) => {
 
 exports.getEvents = async (req, res) => {
   try {
-    console.log("GET /admin/events called")
     const storedEvents = await getStoredEvents()
-    console.log("Returning events:", storedEvents)
     res.status(200).json(storedEvents)
   } catch (error) {
     console.error("Error in getEvents handler:", error)
