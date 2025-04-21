@@ -8,7 +8,9 @@
     "start": "node app.js",
     "start-server": "node app.js",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack --config webpack.config.js --watch"
+    "dev": "webpack --config webpack.config.js --watch",
+    "dev:serve": "nodemon --watch dist --exec \"node app.js\"",
+    "dev:all":  "concurrently \"npm run dev\" \"npm run dev:serve\""
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "@babel/preset-env": "^7.26.9",
     "@types/bcrypt": "^5.0.2",
     "babel-loader": "^10.0.0",
+    "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
     "date-fns": "^4.1.0",
     "eslint": "^9.24.0",
