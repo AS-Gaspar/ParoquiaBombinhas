@@ -1,16 +1,10 @@
 [
   {
-    "local": "Capela da paróquia",
-    "data": "27/04/2025",
+    "local": "Capela da paróquiaaaa",
+    "data": "23/04/2025",
     "hora": "10h10",
     "nome": "Encontro de jovens",
-    "description": "Célula de jovens na capela da paróquia"
-  },
-  {
-    "local": "Teste",
-    "data": "28/04/2025",
-    "hora": "10h10",
-    "nome": "Teste",
-    "description": "Teste"
+    "description": "Célula de jovens na capela da paróquia",
+    "id": "4fc283c9-b039-49df-a0f0-109e507f0b5d"
   }
 ]

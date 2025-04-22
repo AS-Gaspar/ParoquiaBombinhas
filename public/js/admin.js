@@ -1,4 +1,4 @@
-import { parse, format } from "date-fns"
+import { parse, format, sub } from "date-fns"
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css"
 
@@ -142,9 +142,9 @@ function renderEventos() {
     <strong>Nome:</strong> ${nome}${descriptionHtml}
     </span>
     <span>
-      <button class="btn btn-sm btn-warning" data-edit="${index}">Editar</button>
-      <button class="btn btn-sm btn-danger" data-remove="${index}">Remover</button>
-    </span>`;
+      <button class="btn btn-sm btn-warning" onclick="window.location.href='/views/edit-event.html?id=${evento.id}'">Editar</button>
+      <button class="btn btn-sm btn-danger" data-remove="${evento.id}">Remover</button>
+    </span>`
 
     adminEventList.appendChild(li)
   })
@@ -154,8 +154,4 @@ function removerEvento(index) {
   // TODO
 }
 
-function editarEvento(index) {
-  // TODO
-}
-
-fetchAndRenderEvents();
+fetchAndRenderEvents()

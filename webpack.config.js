@@ -2,14 +2,18 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './public/js/admin.js',
+  // Change entry to an object for multiple bundles
+  entry: {
+    admin: './public/js/admin.js', // Bundle for admin page
+    editEvent: './public/js/edit-event.js' // Bundle for edit page
+  },
   output: {
-    filename: 'main.js',
+    // Use [name] to generate filenames based on entry keys
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, './public/dist'),
   },
   module: {
     rules: [
-        
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
@@ -24,4 +28,6 @@ module.exports = {
       }
     ],
   },
+  // Optional: Add devtool for better debugging
+  devtool: 'inline-source-map',
 };

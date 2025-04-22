@@ -7,6 +7,7 @@ router.post("/login", adminController.handleLogin)
 router.get("/dashboard", adminController.renderDashboard)
 router.post("/events", adminController.addEvent)
 router.get("/events", adminController.getEvents)
-router.get("/edit-events", adminController.getEditEvent)
+router.get("/events/:id", adminController.getEventById)
+router.put("/events/:id", adminController.editEvent)
 
 module.exports = router

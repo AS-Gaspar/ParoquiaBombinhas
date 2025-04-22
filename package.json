@@ -10,7 +10,7 @@
     "build": "npx webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.js --watch",
     "dev:serve": "nodemon --watch dist --exec \"node app.js\"",
-    "dev:all":  "concurrently \"npm run dev\" \"npm run dev:serve\""
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:serve\""
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,8 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "express": "^5.1.0",
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.13",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",

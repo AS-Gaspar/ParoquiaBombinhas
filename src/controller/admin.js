@@ -2,6 +2,7 @@ const path = require("path")
 const fs = require("fs/promises")
 const dataPath = path.join(__dirname, "../data/admin.json") 
 const eventsDataPath = path.join(__dirname, "../data/events.json") 
+const { v4: uuidv4 } = require("uuid")
 
 async function getStoredCredentials() {
   try {
@@ -85,6 +86,7 @@ exports.addEvent = async (req, res) => {
 
   try {
     const storedEvents = await getStoredEvents()
+    newEvent.id = uuidv4()
     storedEvents.push(newEvent)
     await storeEvents(storedEvents)
 
@@ -105,6 +107,48 @@ exports.getEvents = async (req, res) => {
   }
 }
 
-exports.getEditEvent = async (req, res) => {
-  
+exports.getEventById = async (req, res) => {
+  const id = req.params.id
+  try {
+    const storedEvents = await getStoredEvents()
+    const evento = storedEvents.find(ev => ev.id === id)
+    if (!evento) return res.status(404).json({ message: "Evento não encontrado" })
+    res.status(200).json(evento)
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao buscar evento" })
+  }
+}
+
+exports.editEvent = async (req, res) => {
+  const id = req.params.id
+  const updateEvent = req.body
+
+  if (
+    !id ||
+    !updateEvent ||
+    !updateEvent.local ||
+    !updateEvent.data ||
+    !updateEvent.hora ||
+    !updateEvent.nome
+  ) {
+    return res.status(400).json({ message: "Dados inválidos para edição"})
+  }
+
+  try {
+    const storedEvents = await getStoredEvents()
+    const idx = storedEvents.findIndex(ev => ev.id === id)
+
+    if (idx === -1) {
+      return res.status(404).json({ message: "Evento não encontrado" }) 
+    } 
+
+    updateEvent.id = id
+    storedEvents[idx] = updateEvent
+    await storeEvents(storedEvents)
+    res.status(200).json({ message: "Evento editado com sucesso!", event: updateEvent })
+    
+    } catch (error) {
+      console.error("Error in editEvent handler:", error)
+      res.status(500).json({ message: "Erro ao editar evento" })
+  }
 }
