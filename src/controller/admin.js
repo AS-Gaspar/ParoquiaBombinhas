@@ -152,3 +152,29 @@ exports.editEvent = async (req, res) => {
       res.status(500).json({ message: "Erro ao editar evento" })
   }
 }
+
+exports.deleteEvent = async (req, res) => {
+  const id = req.params.id
+  if (!id) {
+    return res.status(400).json({ message: "ID do evento não fornecido." })
+  }
+
+  try {
+    const storedEvents = await getStoredEvents()
+    const initialLength = storedEvents.length
+
+    const filteredEvents = storedEvents.filter(ev => ev.id !== id)
+
+    if (filteredEvents.length === initialLength) {
+      return res.status(404).json({ message: "Evento não encontrado para remoção." })
+    }
+
+  await storeEvents(filteredEvents)
+
+  res.status(200).json({ message: "Evento removido com sucesso!"})
+
+  } catch (error) {
+    console.error("Error in deleteEvent handler:", error)
+    res.status(500).json({ message: "Erro interno ao remover o evento." })
+  }
+}

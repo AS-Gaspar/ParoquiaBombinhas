@@ -1,4 +1,4 @@
-import { parse, format, sub } from "date-fns"
+import { parse } from "date-fns"
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css"
 
@@ -117,7 +117,6 @@ function renderEventos() {
   })
 
   eventos.forEach((evento, index) => {
-
     if (!evento || typeof evento !== 'object') {
       console.warn("Skipping invalid item in eventos array:", evento)
       return
@@ -142,7 +141,7 @@ function renderEventos() {
     <strong>Nome:</strong> ${nome}${descriptionHtml}
     </span>
     <span>
-      <button class="btn btn-sm btn-warning" onclick="window.location.href='/views/edit-event.html?id=${evento.id}'">Editar</button>
+      <button class="btn btn-sm btn-warning m-2" onclick="window.location.href='/views/edit-event.html?id=${evento.id}'">Editar</button>
       <button class="btn btn-sm btn-danger" data-remove="${evento.id}">Remover</button>
     </span>`
 
@@ -150,8 +149,49 @@ function renderEventos() {
   })
 }
 
-function removerEvento(index) {
-  // TODO
+ async function removerEvento(id) {
+  try {
+    const response = await fetch(`/admin/events/${id}`, {
+      method: 'DELETE'
+    })
+
+    if (!response.ok) {
+      let errorMessage = `HTTP error! status: ${response.status}`
+      try {
+        const errorData = await response.json()
+        errorMessage = errorData.message || errorMessage
+      } catch (e) {
+        
+      }
+      throw new Error(errorMessage)
+    }
+
+    eventos = eventos.filter(evento => evento.id !== id)
+
+    renderEventos()
+    alert('Evento removido com sucesso!')
+
+  } catch (error) {
+    console.error('Erro ao remover evento:', error)
+    alert(`Falha ao remover evento: ${ error.message }`)
+  } 
 }
 
-fetchAndRenderEvents()
+document.addEventListener('DOMContentLoaded', () => {
+  const adminEventList = document.getElementById("adminEventList")
+  if (adminEventList) {
+    adminEventList.addEventListener('click', (event) => {
+      if (event.target.matches('button[data-remove]')) {
+        const eventId = event.target.getAttribute('data-remove')
+        if (confirm('Tem certeza que deseja remover este evento?')) {
+          removerEvento(eventId)
+        }
+      }
+    })
+  } else {
+    console.error("Elemento 'adminEventList' não encontrado para adicionar listener de remoção")
+  }
+
+  fetchAndRenderEvents()
+})
+
