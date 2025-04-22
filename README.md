@@ -27,17 +27,19 @@ Este projeto foi desenvolvido como parte da disciplina de Hands On Work com o ob
 
 ## 🧩 Tecnologias Utilizadas
 
-🧑‍💻 **FrontEnd**
-    - HTML5  
-    - CSS3 (Com flexbox, grid layout e media queries para responsividade)  
-    - Bootstrap 5
-    - JavaScript
-🛠️ **Back-End**   
-    - Node.js
-    - Express
-    
+🧑‍💻 **Frontend**
+- HTML5  
+- CSS3 
+- Bootstrap 5  
+- JavaScript
+
+🛠️ **Backend**  
+- Node.js  
+- Express 
+- JSON como armazenamento local simulado (substituindo um banco de dados)
+
 ☁️ **Deploy**  
-- Heroku – Plataforma utilizada para hospedar a aplicação web
+- Heroku – Plataforma utilizada para hospedagem da aplicação
 
 ---
 
@@ -45,54 +47,60 @@ Este projeto foi desenvolvido como parte da disciplina de Hands On Work com o ob
 
 ```
 📦 ParoquiaBombinhas
-├── app.js                           # Inicialização do server
-├── public/                          # Front-End
-|   ├── views/
-|   |   ├── index.html               # Página inicial com informações e mapa
-|   |   ├── mais.html                # Galeria de fotos e informações gerais da igreja
-|   |   ├── events.html              # Página de cronograma de eventos
-|   |   ├── admin.html               # Painel administrativo de eventos
-|   |   ├── login.html               # Tela de login para administradores
-|   |   ├── edit-event.html          # Painel de edição de evento
-|   |   └── 404.html                 # Página de erro 404
-|   ├── css/
-|   |   ├── main.css                 # Estilos principais 
-|   |   ├── event.css                # Estilos exclusivos da página de eventos
-|   |   ├── mural.css                # Estilos exclusivos da página de eventos
-|   |   ├── login.css                # Estilos exclusivos da página de login
-|   |   └── 404.css                  # Estilos da página de Erro 404
-|   ├── js/
-|   │   ├── main.js                  # Script principal
-|   |   ├── events.js                # Script que consome dados de eventos armazenados em /src/data/events.json
-|   |   ├── login.js                 # Script de validação de username e password do administrador
-|   │   ├── events.js                # Script de exibição de eventos
-|   |   └── edit-events.js           # Script para receber dados de edição de um evento, e enviar para o backend
-|   ├── dist/
-|   │   ├── admin.bundle.js          # Script conversor gerado com Webpack do arquivo js/admin.js
-|   │   └── editEvent.bundle.js      # Script conversor gerado com Webpack do arquivo js/edit-event.js
-|   ├── imgs/
-|   │   ├── logo-paroquia.png        # Logo da igreja
-|   │   ├── favicon.ico              # Ícone do site
-|   |   └── (outras imagens da galeria)
-|
-├── src/                             # Back-End
-|   ├── controller/
-|   |   ├── static.js                # Apenas envio da página estática
-|   |   ├── admin.js                 # Todo o controle das funcionalidades de renderizar, criar, editar e remover eventos
-|   |   └── 404.js                   # Controller e router da página de erro
-|   ├── routes/
-|   |   ├── static.js                # Router das páginas estáticas
-|   |   └── admin.js                 # Router de requests área do administrador
-|   ├── data/
-|   |   ├── admin.json           
-|   |   └── events.json              # Arquivo onde eventos são armazenados
-|
-├── .tool-versions                   # Controle de versão de dependências com asdf (Estou utilizando Arch linux no WSL 2)
-├── procfile                         # Comando de iniciação do servidor informado ao heroku para ser excutado
-├── webpack.config.js                # Configuração para conversão de arquivos js
-├── node_modules/                    # Dependências instaladas com npm (Ex: bootstrap, babel, nodemon, eslint, uuid, concurrently, flatpickr)
-├── package.json                     # Configurações do projeto e dependências
-└── package-lock.json                # Controle de versões das dependências
+├── app.js                           # Ponto de entrada da aplicação – inicializa o servidor Express
+│
+├── public/                          # Frontend (arquivos estáticos servidos ao cliente)
+│   ├── views/                       # Páginas HTML da aplicação
+│   │   ├── index.html               # Página inicial com informações e mapa
+│   │   ├── mais.html                # Galeria de fotos e informações gerais da igreja
+│   │   ├── events.html              # Página com o cronograma de eventos
+│   │   ├── admin.html               # Painel administrativo para gerenciar eventos
+│   │   ├── login.html               # Tela de login para administradores
+│   │   ├── edit-event.html          # Tela de edição de evento
+│   │   └── 404.html                 # Página de erro personalizada (404)
+│   │
+│   ├── css/                         # Arquivos de estilo
+│   │   ├── main.css                 # Estilos globais da aplicação
+│   │   ├── event.css                # Estilos específicos da página de eventos
+│   │   ├── mural.css                # Estilos adicionais para a galeria/eventos
+│   │   ├── login.css                # Estilos da tela de login
+│   │   └── 404.css                  # Estilos da página de erro
+│   │
+│   ├── js/                          # Scripts JavaScript do frontend
+│   │   ├── main.js                  # Script principal da aplicação
+│   │   ├── events.js                # Exibe os eventos carregados de /src/data/events.json
+│   │   ├── login.js                 # Validação de login do administrador
+│   │   └── edit-events.js           # Envio e recebimento de dados de edição de eventos
+│   │
+│   ├── dist/                        # Scripts otimizados gerados com Webpack
+│   │   ├── admin.bundle.js          # Versão compactada de admin.js
+│   │   └── editEvent.bundle.js      # Versão compactada de edit-events.js
+│   │
+│   ├── imgs/                        # Recursos visuais utilizados no site
+│   │   ├── logo-paroquia.png        # Logotipo da igreja
+│   │   ├── favicon.ico              # Ícone da aba do navegador
+│   │   └── (outras imagens da galeria)
+│
+├── src/                             # Backend (lógica da aplicação e API)
+│   ├── controller/                  # Controladores com regras de negócio
+│   │   ├── static.js                # Serve páginas estáticas
+│   │   ├── admin.js                 # CRUD de eventos (criar, editar, remover, listar)
+│   │   └── 404.js                   # Tratamento da rota de erro (404)
+│   │
+│   ├── routes/                      # Definição das rotas da aplicação
+│   │   ├── static.js                # Rotas públicas e estáticas
+│   │   └── admin.js                 # Rotas da área administrativa
+│   │
+│   ├── data/                        # Base de dados local (JSON)
+│   │   ├── admin.json               # Dados de autenticação de administradores
+│   │   └── events.json              # Lista de eventos armazenados
+│
+├── .tool-versions                   # Define versões de Node e outras ferramentas (usado com asdf; ambiente Arch Linux via WSL2)
+├── Procfile                         # Comando de inicialização utilizado pelo Heroku para deploy
+├── webpack.config.js                # Configuração do Webpack para empacotamento dos scripts JS
+├── node_modules/                    # Dependências instaladas com npm
+├── package.json                     # Configuração principal do projeto e dependências
+└── package-lock.json                # Mapeamento exato das versões das dependências instaladas
 ```
 
 ---
