@@ -1,3 +1,6 @@
+import flatpickr from "flatpickr"
+import "flatpickr/dist/flatpickr.min.css"
+
 document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search)
   const id = params.get("id")
@@ -19,10 +22,36 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   document.getElementById("editEventLocal").value = evento.local
-  document.getElementById("editEventDate").value = evento.data
-  document.getElementById("editEventHour").value = evento.hora
+  const dateInput = document.getElementById("editEventDate")
+  const hourInput = document.getElementById("editEventHour")
   document.getElementById("editEventName").value = evento.nome
-  document.getElementById("editEventDescription").value = evento.description || ""
+  document.getElementById("editEventDescription").value =
+    evento.description || ""
+
+  dateInput.value = evento.data
+  hourInput.value = evento.hora
+
+  flatpickr(dateInput, {
+    dateFormat: "d/m/Y",
+    allowInput: true,
+  })
+
+  hourInput.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "")
+    if (value.length > 2) {
+      value = value.slice(0, 2) + "h" + value.slice(2, 4)
+    }
+
+    if (value.length === 5) {
+      const parts = value.split("h")
+      const hours = parseInt(parts[0], 10)
+      const minutes = parseInt(parts[1], 10)
+      if (hours > 23 || minutes > 59) {
+        value = value.slice(0, -1)
+      }
+      e.target.value = value.slice(0, 5)
+    }
+  })
 
   document
     .getElementById("eventForm")
@@ -30,8 +59,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       e.preventDefault()
       const updatedEvent = {
         local: document.getElementById("editEventLocal").value,
-        data: document.getElementById("editEventDate").value,
-        hora: document.getElementById("editEventHour").value,
+        data: dateInput.value,
+        hora: hourInput.value,
         nome: document.getElementById("editEventName").value,
         description:
           document.getElementById("editEventDescription").value || "",
@@ -44,9 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         })
         if (!response.ok) {
           const errorData = await response.json()
-          throw new Error(
-            errorData.message || "Erro ao editar evento"
-          )
+          throw new Error(errorData.message || "Erro ao editar evento")
         }
         alert("Evento editado com sucesso!")
         window.location.href = "/admin/dashboard"

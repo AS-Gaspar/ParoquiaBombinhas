@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "local": "Capela da paróquia",
+    "data": "26/04/2025",
+    "hora": "8h",
+    "nome": "Aula de Catequese",
+    "description": "Tema da aula: Os Mandamentos",
+    "id": "21d28de2-ec20-4a00-9a03-658187ac2264"
+  },
+  {
+    "local": "Paróquia de Bombas",
+    "data": "27/04/2025",
+    "hora": "8h",
+    "nome": "Missa dominical",
+    "description": "Missa do 1º domingo do templo comum",
+    "id": "387d74a5-fcb9-4a06-8d17-6adbc510a7f0"
+  },
+  {
+    "local": "Capela da paróquia",
+    "data": "24/04/2025",
+    "hora": "19h00",
+    "nome": "Encontro de jovens",
+    "description": "Célula de jovens na capela da paróquia",
+    "id": "5f205944-b4bf-4329-a657-ab6d30de7037"
+  },
+  {
+    "local": "Salão de festas",
+    "data": "04/05/2025",
+    "hora": "14h",
+    "nome": "Bingo da Igreja",
+    "description": "Bingo acompanhado de comes e bebes",
+    "id": "aff7583b-1978-40e7-935b-2b0169381663"
+  },
+  {
+    "local": "Praia",
+    "data": "10/05/2025",
+    "hora": "7h",
+    "nome": "Caminhada da limpeza",
+    "description": "Comunidade unida, em prol de fazer o bem ao meio ambiente. Grupos serão divididos entre as praias da cidade, para caminhar de ponta a ponta fazendo recolhimento de lixos.",
+    "id": "3b03c556-91eb-46f4-a54f-33a2c38f9b76"
+  }
+]
