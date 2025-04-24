@@ -116,7 +116,7 @@ function renderEventos() {
     }
   })
 
-  eventos.forEach((evento, index) => {
+  eventos.forEach((evento) => {
     if (!evento || typeof evento !== 'object') {
       console.warn("Skipping invalid item in eventos array:", evento)
       return
