@@ -30,13 +30,5 @@
     "nome": "Bingo da Igreja",
     "description": "Bingo acompanhado de comes e bebes",
     "id": "aff7583b-1978-40e7-935b-2b0169381663"
-  },
-  {
-    "local": "Praia",
-    "data": "10/05/2025",
-    "hora": "7h",
-    "nome": "Caminhada da limpeza",
-    "description": "Comunidade unida, em prol de fazer o bem ao meio ambiente. Grupos serão divididos entre as praias da cidade, para caminhar de ponta a ponta fazendo recolhimento de lixos.",
-    "id": "3b03c556-91eb-46f4-a54f-33a2c38f9b76"
   }
 ]

@@ -14,10 +14,6 @@ body {
     gap: 10px; 
 }
 
-.gap-list {
-    gap: 6px !important;
-}
-
 .btn-admin {
     position: absolute;
     top: 10px;
