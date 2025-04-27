@@ -1,26 +1,106 @@
 [
   {
-    "local": "Capela da paróquia",
-    "data": "26/04/2025",
-    "hora": "8h",
-    "nome": "Aula de Catequese",
-    "description": "Tema da aula: Os Mandamentos",
-    "id": "21d28de2-ec20-4a00-9a03-658187ac2264"
+    "local": "Comunidade São João Batista, José Armândio",
+    "data": "10/05/2025",
+    "hora": "18h00",
+    "nome": "Vigília Pascal",
+    "description": "Missa de sábado a noite",
+    "id": "71586627-e079-4354-98f1-ddbfa8390a3b"
   },
   {
-    "local": "Paróquia de Bombas",
-    "data": "27/04/2025",
-    "hora": "8h",
+    "local": "Comunidade São João Batista, José Armândio",
+    "data": "17/05/2025",
+    "hora": "18h00",
+    "nome": "Vigília Pascal",
+    "description": "Missa de sábado a noite",
+    "id": "d522453b-e2eb-4d37-bff6-de597bd97a74"
+  },
+  {
+    "local": "Comunidade Nossa Senhora dos Navegantes, Canto Grande",
+    "data": "10/05/2025",
+    "hora": "19h30",
+    "nome": "Vigília Pascal",
+    "description": "Missa de sábado a noite",
+    "id": "3a428684-04aa-46ce-820b-f4e50677c1ca"
+  },
+  {
+    "local": "Comunidade Nossa Senhora dos Navegantes, Canto Grande",
+    "data": "17/05/2025",
+    "hora": "19h30",
+    "nome": "Vigília Pascal",
+    "description": "Missa de sábado a noite",
+    "id": "8718a7f0-17c2-4266-8e22-88f5101f7ba4"
+  },
+  {
+    "local": "Igreja Matriz, Bombas",
+    "data": "10/05/2025",
+    "hora": "19h30",
+    "nome": "Vigília Pascal",
+    "description": "Missa de sábado a noite",
+    "id": "c682f434-afe9-4be0-be82-0ab5dba1812a"
+  },
+  {
+    "local": "Igreja Matriz, Bombas",
+    "data": "17/05/2025",
+    "hora": "19h30",
+    "nome": "Vigília Pascal",
+    "description": "Missa de sábado á noite",
+    "id": "aa3093fb-d659-4d06-b1ba-34a600b9a489"
+  },
+  {
+    "local": "Igreja Matriz, Bombas",
+    "data": "11/05/2025",
+    "hora": "08h00",
     "nome": "Missa dominical",
-    "description": "Missa do 1º domingo do templo comum",
-    "id": "387d74a5-fcb9-4a06-8d17-6adbc510a7f0"
+    "description": "Missa do 3º domingo do templo comum",
+    "id": "81ddffed-8aa4-4934-8192-91fdd14d436b"
   },
   {
-    "local": "Capela da paróquia",
-    "data": "24/04/2025",
+    "local": "Comunidade São José, Zimbros",
+    "data": "11/05/2025",
     "hora": "19h00",
-    "nome": "Encontro de jovens",
-    "description": "Célula de jovens na capela da paróquia",
-    "id": "5f205944-b4bf-4329-a657-ab6d30de7037"
+    "nome": "Missa dominical",
+    "description": "Missa do 3º domingo do templo comum",
+    "id": "b784febd-4247-4e2a-afd5-fcfb05289ff3"
+  },
+  {
+    "local": "Igreja Matriz, Bombas",
+    "data": "18/05/2025",
+    "hora": "08h00",
+    "nome": "Missa dominical",
+    "description": "Missa do 4º domingo do templo comum",
+    "id": "d3fc94e5-d2ab-45b5-b791-7995e7687d3d"
+  },
+  {
+    "local": "Comunidade São José, Zimbros",
+    "data": "18/05/2025",
+    "hora": "19h00",
+    "nome": "Missa dominical",
+    "description": "Missa do 4º domingo do templo comum",
+    "id": "9307c5de-0d6e-48f4-9b22-fbe9788c6b9f"
+  },
+  {
+    "local": "Comunidade de Nossa Senhora Aparecida, Morrinhos",
+    "data": "11/05/2025",
+    "hora": "10h00",
+    "nome": "Missa dominical",
+    "description": "Missa do 3º domingo do templo comum",
+    "id": "cc296273-3c47-4d85-85ec-f680755e5735"
+  },
+  {
+    "local": "Comunidade de Nossa Senhora Aparecida, Morrinhos",
+    "data": "18/05/2025",
+    "hora": "10h00",
+    "nome": "Missa dominical",
+    "description": "Missa do 4º domingo do templo comum",
+    "id": "bd4fa2e1-a9d2-4126-b39e-8f6e7edfc011"
+  },
+  {
+    "local": "Comunidade de Nossa Senhora Aparecida, Morrinhos",
+    "data": "18/05/2025",
+    "hora": "10h00",
+    "nome": "Missa dominical",
+    "description": "Missa do 4º domingo do templo comum",
+    "id": "c376dec2-336f-4bd7-ae5f-6aeb29e2e539"
   }
 ]
