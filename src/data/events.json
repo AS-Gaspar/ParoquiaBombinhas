@@ -1,7 +1,7 @@
 [
   {
     "local": "Comunidade São João Batista, José Armândio",
-    "data": "10/05/2025",
+    "data": "14/06/2025",
     "hora": "18h00",
     "nome": "Vigília Pascal",
     "description": "Missa de sábado a noite",
@@ -9,7 +9,7 @@
   },
   {
     "local": "Comunidade São João Batista, José Armândio",
-    "data": "17/05/2025",
+    "data": "07/06/2025",
     "hora": "18h00",
     "nome": "Vigília Pascal",
     "description": "Missa de sábado a noite",
@@ -17,7 +17,7 @@
   },
   {
     "local": "Comunidade Nossa Senhora dos Navegantes, Canto Grande",
-    "data": "10/05/2025",
+    "data": "07/06/2025",
     "hora": "19h30",
     "nome": "Vigília Pascal",
     "description": "Missa de sábado a noite",
@@ -25,7 +25,7 @@
   },
   {
     "local": "Comunidade Nossa Senhora dos Navegantes, Canto Grande",
-    "data": "17/05/2025",
+    "data": "14/06/2025",
     "hora": "19h30",
     "nome": "Vigília Pascal",
     "description": "Missa de sábado a noite",
@@ -33,7 +33,7 @@
   },
   {
     "local": "Igreja Matriz, Bombas",
-    "data": "10/05/2025",
+    "data": "14/06/2025",
     "hora": "19h30",
     "nome": "Vigília Pascal",
     "description": "Missa de sábado a noite",
@@ -41,7 +41,7 @@
   },
   {
     "local": "Igreja Matriz, Bombas",
-    "data": "17/05/2025",
+    "data": "07/06/2025",
     "hora": "19h30",
     "nome": "Vigília Pascal",
     "description": "Missa de sábado á noite",
@@ -49,7 +49,7 @@
   },
   {
     "local": "Igreja Matriz, Bombas",
-    "data": "11/05/2025",
+    "data": "08/06/2025",
     "hora": "08h00",
     "nome": "Missa dominical",
     "description": "Missa do 3º domingo do templo comum",
@@ -57,7 +57,7 @@
   },
   {
     "local": "Comunidade São José, Zimbros",
-    "data": "11/05/2025",
+    "data": "08/06/2025",
     "hora": "19h00",
     "nome": "Missa dominical",
     "description": "Missa do 3º domingo do templo comum",
@@ -65,7 +65,7 @@
   },
   {
     "local": "Igreja Matriz, Bombas",
-    "data": "18/05/2025",
+    "data": "15/06/2025",
     "hora": "08h00",
     "nome": "Missa dominical",
     "description": "Missa do 4º domingo do templo comum",
@@ -73,7 +73,7 @@
   },
   {
     "local": "Comunidade São José, Zimbros",
-    "data": "18/05/2025",
+    "data": "15/06/2025",
     "hora": "19h00",
     "nome": "Missa dominical",
     "description": "Missa do 4º domingo do templo comum",
@@ -81,23 +81,15 @@
   },
   {
     "local": "Comunidade de Nossa Senhora Aparecida, Morrinhos",
-    "data": "11/05/2025",
+    "data": "08/06/2025",
     "hora": "10h00",
     "nome": "Missa dominical",
     "description": "Missa do 3º domingo do templo comum",
-    "id": "cc296273-3c47-4d85-85ec-f680755e5735"
-  },
-  {
-    "local": "Comunidade de Nossa Senhora Aparecida, Morrinhos",
-    "data": "18/05/2025",
-    "hora": "10h00",
-    "nome": "Missa dominical",
-    "description": "Missa do 4º domingo do templo comum",
     "id": "bd4fa2e1-a9d2-4126-b39e-8f6e7edfc011"
   },
   {
     "local": "Comunidade de Nossa Senhora Aparecida, Morrinhos",
-    "data": "18/05/2025",
+    "data": "15/06/2025",
     "hora": "10h00",
     "nome": "Missa dominical",
     "description": "Missa do 4º domingo do templo comum",
