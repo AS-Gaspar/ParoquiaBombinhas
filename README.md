@@ -15,13 +15,13 @@ Este projeto foi desenvolvido como parte da disciplina de Hands On Work com o ob
 
 ## 🛠️ Funcionalidades Implementadas
 
-✅ Página inicial com informações da paróquia  
-✅ Mural de fotos com imagens da igreja e eventos  
-✅ Cronograma de eventos atualizados dinamicamente  
-✅ Painel administrativo para cadastro e edição de eventos  
-✅ Sistema de login administrativo  
-✅ Design responsivo utilizando Bootstrap 5  
-✅ Informações de contato e localização integradas ao Google Maps  
+- Página inicial com informações da paróquia  
+- Mural de fotos com imagens da igreja e eventos  
+- Cronograma de eventos atualizados dinamicamente  
+- Painel administrativo para cadastro e edição de eventos  
+- Sistema de login administrativo  
+- Design responsivo utilizando Bootstrap 5  
+- Informações de contato e localização integradas ao Google Maps  
 
 ---
 
